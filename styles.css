@@ -30,6 +30,7 @@ time, mark, audio, video {
     font-size: 12px;
     --h1-font-size: 2.3rem;
     --nav-height: max(825px, 100vh);
+    --gray-shadow-color: #d1d7df;
     --gray-bg-color: #e2e8f0;
     --li-header-font-size: 1.75rem;
     --kerning: -0.3px;
@@ -48,7 +49,7 @@ body {
 }
 
 nav {
-    box-shadow: 2px 2px 2px rgb(221, 221, 221);
+    /* box-shadow: 2px 2px 2px var(--gray-shadow-color); */
     height: var(--nav-height);
     grid-row: 1 / 3;
     background-color: var(--blue-bg-color);
@@ -131,7 +132,7 @@ header {
     display: grid;
     grid-template-rows: 60px 1fr;
     grid-template-columns: 60% 40%;
-    box-shadow: 4px 4px 4px rgb(221, 221, 221);
+    box-shadow: 1px 5px 5px var(--gray-shadow-color);
     box-sizing: border-box;
     padding: 15px 120px 0px 70px;
 }
@@ -220,10 +221,68 @@ header {
     border: none;
     border-radius: 40px;
     background-color: var(--blue-bg-color);
-    width: 140px;
-    height: 55px;
+    width: 130px;
+    height: 50px;
     font-family: inherit;
     font-size: var(--li-header-font-size);
     color: white;
     font-weight: bold;
+}
+
+
+
+/* Main Styles */
+
+main {
+    box-sizing: border-box;
+    position: relative;
+    z-index: -1;
+    background-color: var(--gray-bg-color);
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 75% 25%;
+    padding: 0px 75px 35px 10px;
+}
+
+.projects {
+    display: grid;
+    grid-row: 1 / 3;
+    grid-template-rows: 60px 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.projects h2, .sideContent h2 {
+    font-size: var(--li-header-font-size);
+    align-self: flex-end;
+    font-weight: 600;
+}
+
+.projects h2 {
+    position: relative;
+    grid-column: 1 / 3;
+}
+
+.sideContent {
+    display: grid;
+    grid-template-rows: 60px auto;
+}
+
+.project {
+    border-left: 10px solid #eab308;
+    width: 90%;
+}
+
+.project:nth-child(even), .projects h2 {
+    left: 30px;
+}
+
+.card {
+    box-sizing: border-box;
+    padding: 40px 25px;
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px var(--gray-shadow-color);
+    top: 15px;
+    height: 90%;
 }
