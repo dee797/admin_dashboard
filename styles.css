@@ -32,6 +32,7 @@ time, mark, audio, video {
     --nav-height: max(825px, 100vh);
     --gray-shadow-color: #d1d7df;
     --gray-bg-color: #e2e8f0;
+    --gray-card-color: rgb(90,90,90);
     --li-header-font-size: 1.75rem;
     --kerning: -0.3px;
     --small-font-size: 1.25rem;
@@ -58,6 +59,12 @@ nav {
 
 main {
     grid-column: 2 / 3;
+    box-sizing: border-box;
+    background-color: var(--gray-bg-color);
+    display: grid;
+    grid-template-rows: 60% 40%;
+    grid-template-columns: 70% 30%;
+    padding: 0px 60px 40px 40px;
 }
 
 a, a:visited, a:link {
@@ -233,16 +240,7 @@ header {
 
 
 
-/* Main Styles */
-
-main {
-    box-sizing: border-box;
-    background-color: var(--gray-bg-color);
-    display: grid;
-    grid-template-rows: 50% 50%;
-    grid-template-columns: 70% 30%;
-    padding: 0px 60px 40px 40px;
-}
+/* Project Styles */
 
 .projects {
     display: grid;
@@ -263,12 +261,6 @@ main {
     grid-column: 1 / 4;
 }
 
-.sideContent {
-    margin-left: 30px;
-    display: grid;
-    grid-template-rows: 60px 1fr;
-    gap: 20px;
-}
 
 .card {
     box-sizing: border-box;
@@ -298,7 +290,7 @@ main {
 
 .project p {
     font-size: var(--small-font-size);
-    color: rgb(90, 90, 90);
+    color: var(--gray-card-color);
     grid-area: p;
 }
 
@@ -318,6 +310,105 @@ main {
     justify-self: flex-end;
 }
 
+
+
+/* Side Content Styles */
+
+.sideContent {
+    margin-left: 30px;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    gap: 20px;
+}
+
+.sideContent h3 {
+    font-size: calc(var(--small-font-size) + 1px);
+    padding-bottom: 3px;
+}
+
+#announcements p {
+    color: var(--gray-card-color);
+}
+
+.announcement {
+    border-bottom: 1px solid var(--gray-shadow-color);
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.announcement:nth-child(3) {
+    border: none;
+}
+
+#trending {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    padding: 17px 25px;
+}
+
 .person {
-    height:10px;
+    display: grid;
+    grid-template: 1fr 1fr / 55px 1fr;
+}
+
+.person a:first-child, .person img {
+    width: 45px;
+    height: 45px;
+    grid-row: 1 / 3;
+    align-self: center;
+}
+
+.handle {
+    align-self: flex-end;
+    height: fit-content !important;
+    width: fit-content !important;
+}
+
+.description {
+    color: var(--gray-card-color);
+}
+
+
+
+
+
+@media only screen and (max-width: 1500px) {
+    body {
+        grid-template-rows: 115px 710px;
+    }
+
+    .project {
+        width: 45%;
+        height: 200px;
+    }
+
+    .project h3 {
+        font-size: 1.3rem;
+    }
+
+    .project p {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 30px 20px;
+    }
+    
+    header, main, .projects {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    #searchBar, .search {
+        width: 100%;
+    }
+    
+    header .profile, header .buttons, .sideContent, .greeting, .projects h2 {
+        display: none;
+    }
+
+    .greeting {
+        width: 100%;
+    }
 }
