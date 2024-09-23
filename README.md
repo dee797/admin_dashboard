@@ -1,1 +1,1 @@
-# admin_dashboard
+A mockup for an admin dashboard using HTML and CSS.
